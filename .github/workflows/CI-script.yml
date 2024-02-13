@@ -15,3 +15,8 @@ jobs:
         uses: matlab-actions/run-command@v1
         with:
           command: test_csv
+      - name: Upload coverage reports to Codecov
+        uses: codecov/codecov-action@v4
+        env:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          slug: dolphin-acoustics-vip/artwarp
