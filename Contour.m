@@ -11,20 +11,21 @@ classdef Contour
         frequency % An array of frequency values
         tempres   % Sample rate of frequency
         length    % The number of frequency samples
-        category {mustBeInteger} = 0 % The category index this contour is
-            % organised into, initially 0
+        category % The category this contour is
+            % organised into
         warpFunction % The warp function of the contour, will be used to
             % re-calculate the average after this contour is add or removed
             % from its category
     end
 
     methods (Static)
-        function obj = Contour(frequency, tempres, length)
+        function obj = Contour(frequency, tempres, length, warpFunction)
             % Constructs a new contour object with a given array of
             % frequency values, temporal resolution, and length
             obj.frequency = frequency;
             obj.tempres  = tempres;
             obj.length = length;
+            obj.warpFunction = warpFunction;
         end
     end
 end

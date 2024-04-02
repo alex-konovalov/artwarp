@@ -28,7 +28,7 @@ classdef ContourFactory
                 frequency = contents.PeakFrequency_Hz_;
                 ctrLen = size(frequency, 1);
                 tempres = (contents.Time_ms_(ctrLen) - contents.Time_ms_(1)) / ctrLen;
-                contours = [contours, Contour(frequency, tempres, ctrLen)]; %#ok<*AGROW> % ignore warning until better solution found
+                contours = [contours, Contour(frequency, tempres, ctrLen, 0)]; %#ok<*AGROW> % ignore warning until better solution found
             end
         end
 
@@ -43,7 +43,7 @@ classdef ContourFactory
                 frequency = transpose(contents.freqContour);
                 tempres = contents.tempres;
                 ctrLen = size(frequency, 1);
-                contours = [contours, Contour(frequency, tempres, ctrLen)];
+                contours = [contours, Contour(frequency, tempres, ctrLen, 0)];
             end
         end
     end
