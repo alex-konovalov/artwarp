@@ -1,8 +1,3 @@
-% This class represents an abstraction of a tonal waveform
-% Using ContourFactory, a dataset can be read into ARTwarp and turned into
-%   these base units (individual contours), which are then used by the
-%   neural network.
-
 classdef Contour
     % Represents a single tonal waveform
     % Holds the raw frequency values as well as extrapolated variables

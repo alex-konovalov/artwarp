@@ -1,5 +1,5 @@
 classdef NetworkFactory
-    % A factory to initialise the network to be used within an ARTwarp run.
+    % Summary of this class goes here
     %   Detailed explanation goes here
     
     methods (Static)
@@ -9,9 +9,13 @@ classdef NetworkFactory
             net = Network(weights);
         end
 
+
         function load_network
             % Load a saved network
-            %   TODO: no idea how we would store networks
+            %   This will need to include:
+            %           Weights of each category 
+            %           Number of whistles that were previously contained
+            %           in a category
         end
 
         function net = run_categorisation(network, contours, parameters)

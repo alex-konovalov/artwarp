@@ -1,15 +1,16 @@
-% A factory to import contour objects from a directory containing a dataset
-% Ideally, this file should be ignored and only the created Contour objects
-%   interacted with.
-% Datasets can contain both CSV and CTR files
+% A factory to construct an object containing all the contours from within
+% the data directory (this directory may contain both ctr and csv files)
 
 classdef ContourFactory
     methods (Static)
         function contours_shuffled = load_contours(varargin)
+            % Loads all of the contours from the directory and then
+            % shuffles them
+            
             if length(varargin) == 1
                 dir_path = varargin{1};
             else
-                dir_path = cd + "/Test_Data"; % temporarily the subdirectory ./Test_Data
+                dir_path = cd + "/BrazilData"; % temporarily the subdirectory ./Test_Data
             end
             % path = uigetdir('Select the folder containing the contour files') % loads folder
             contours = [ ContourFactory.getCSV(dir_path), ContourFactory.getCTR(dir_path) ];

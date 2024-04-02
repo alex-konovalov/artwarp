@@ -1,20 +1,23 @@
 classdef Category
     % Represents a category of tonal waveforms.
     %   Contains methods for adding contours and calculating
-    %   how much a given contour matches others in this category.
+    %   how much a given contour matches others in this category, as well
+    %   as updating the category with a new contour or removing the contour
+    %   from a category.
     
     properties
-        reference  % The average of all contours in the category;
-                   % this is what prospective members are compared to
-        size % The number of contours in this category
+        average_cont     % The average of all contours in the category;
+                        % this is what new contours are compared to.
+        num_conts        % The number of contours which have already been categorised into this category
     end
     
     methods
-        function cat = Category(size, reference)
-            % Construct a new category from the given array, which must
-            % contain at least one contour
-            cat.size = size;
-            cat.reference = reference;
+        function cat = category(average_cont, numConts)
+            % Construct a category object. If numConts drops to be below
+            % zero, the category will need to be deleted from the network
+            % since it no longer contains any contours
+            cat.numConts = numConts;
+            cat.average_cont  = average_cont;
         end
 
         function val = compare(cat, contour)
@@ -22,6 +25,8 @@ classdef Category
             % Compare a given contour object with the reference contour and
             % return a percentage match value
             % TODO
+
+            % Incorporate the code from ARTwarp_Calculate_Match
         end
 
         function cat = add(cat, contour)
